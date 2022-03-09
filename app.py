@@ -8,6 +8,7 @@ c = conn.cursor()
 
 def sql_executor(raw_code):
     c.execute(raw_code)
+    conn.commit()
     data = c.fetchall()
     return data
 
@@ -34,7 +35,7 @@ def main():
                     st.code(raw_code)
 
                     query_result = sql_executor(raw_code)
-                    with st.beta_expander("Result"):
+                    with st.expander("Result"):
                         st.write(query_result)
 
 
