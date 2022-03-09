@@ -1,6 +1,17 @@
 import streamlit as st
 import pandas as pd
 
+import sqlite3
+conn = sqlite3.connect("data/world.sqlite")
+c = conn.cursor()
+
+
+def sql_executor(raw_code):
+    c.execute(raw_code)
+    data = c.fetchall()
+    return data
+
+
 
 def main():
     st.title("SQLPlayground")
@@ -20,7 +31,11 @@ def main():
             with col2:
                 if submit_code:
                     st.info("Query submitted")
-                    st.write(raw_code)
+                    st.code(raw_code)
+
+                    query_result = sql_executor(raw_code)
+                    with st.beta_expander("Result"):
+                        st.write(query_result)
 
 
     else:
