@@ -13,9 +13,8 @@ def sql_executor(raw_code):
     return data
 
 
-
 def main():
-    st.title("SQLPlayground complete")
+    st.title("SQLPlayground complet main branch test")
 
     menu = ["Home", "About"]
     choice = st.sidebar.selectbox("Menu", menu)
