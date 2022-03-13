@@ -19,7 +19,7 @@ def main():
     menu = ["Home", "About"]
     choice = st.sidebar.selectbox("Menu", menu)
     if choice == "Home":
-        st.subheader("Homepagetest")
+        st.subheader("Homepagetestぴp")
 
         col1, col2 = st.columns(2)
 
